@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://towardsdatascience.com/media/a2ae5e35393c996f0b330162cc86427e -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>code snippet to train LSTM – Medium</title><meta name="description" content="code snippet to train LSTM. GitHub Gist: instantly share code, notes, and snippets."><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!--<base target="_blank">--><base href="." target="_blank"><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="./ce723bad976fca37ad42ea364bec3261.js" charset="utf-8"></script><link rel="stylesheet" href="./gist-embed-31007ea0d3bd9f80540adfbc55afc7bd.css"><div id="gist95204644" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-lstm_train-py" class="file">
+    
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-python ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8" data-paste-markdown-skip="">
+      <tbody><tr>
+        <td id="file-lstm_train-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-lstm_train-py-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">csv_logger</span> <span class="pl-c1">=</span> <span class="pl-v">CSVLogger</span>(<span class="pl-s1">os</span>.<span class="pl-s1">path</span>.<span class="pl-en">join</span>(<span class="pl-v">OUTPUT_PATH</span>, <span class="pl-s">'your_log_name'</span> <span class="pl-c1">+</span> <span class="pl-s">'.log'</span>), <span class="pl-s1">append</span><span class="pl-c1">=</span><span class="pl-c1">True</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-lstm_train-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-lstm_train-py-LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-lstm_train-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-lstm_train-py-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-s1">history</span> <span class="pl-c1">=</span> <span class="pl-s1">model</span>.<span class="pl-en">fit</span>(<span class="pl-s1">x_t</span>, <span class="pl-s1">y_t</span>, <span class="pl-s1">epochs</span><span class="pl-c1">=</span><span class="pl-s1">your_epochs</span>, <span class="pl-s1">verbose</span><span class="pl-c1">=</span><span class="pl-c1">2</span>, <span class="pl-s1">batch_size</span><span class="pl-c1">=</span><span class="pl-v">BATCH_SIZE</span>,</td>
+      </tr>
+      <tr>
+        <td id="file-lstm_train-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-lstm_train-py-LC4" class="blob-code blob-code-inner js-file-line">                    <span class="pl-s1">shuffle</span><span class="pl-c1">=</span><span class="pl-c1">False</span>, <span class="pl-s1">validation_data</span><span class="pl-c1">=</span>(<span class="pl-en">trim_dataset</span>(<span class="pl-s1">x_val</span>, <span class="pl-v">BATCH_SIZE</span>),</td>
+      </tr>
+      <tr>
+        <td id="file-lstm_train-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-lstm_train-py-LC5" class="blob-code blob-code-inner js-file-line">                    <span class="pl-en">trim_dataset</span>(<span class="pl-s1">y_val</span>, <span class="pl-v">BATCH_SIZE</span>)), <span class="pl-s1">callbacks</span><span class="pl-c1">=</span>[<span class="pl-s1">csv_logger</span>])</td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/DarkKnight1991/ce723bad976fca37ad42ea364bec3261/raw/1d4af1f832272b2f26db483eec6db0c308ea0ff0/lstm_train.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/DarkKnight1991/ce723bad976fca37ad42ea364bec3261#file-lstm_train-py">lstm_train.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200; if (document) {document.domain = document.domain;}function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height);var elements = document.getElementsByClassName("gist-data"); for (var i = 0; i < elements.length; i++) {elements[i].style.overflow = "visible"}resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {try {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);} catch(error) {console.log('maybeResize error: ', error)}}maybeResize();</script></body></html>
